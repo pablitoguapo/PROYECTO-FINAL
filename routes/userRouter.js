@@ -5,6 +5,31 @@ const service = new UserService();
 
 /**
  * @swagger
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       required:
+ *         - name
+ *         - email
+ *         - password
+ *       properties:
+ *         name:
+ *           type: string
+ *           description: Nombre del usuario
+ *         email:
+ *           type: string
+ *           description: Correo electrónico
+ *         password:
+ *           type: string
+ *           description: Contraseña del usuario
+ *         role:
+ *           type: string
+ *           description: Rol del usuario
+ *           enum: [admin, viewer, technician]
+ */
+/**
+ * @swagger
  * tags:
  *   name: Users
  *   description: API para administrar usuarios
