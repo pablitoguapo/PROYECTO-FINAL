@@ -41,5 +41,3 @@ api.example.com/people/{id}
 
 api.example.com/users/{id}/tasks/{id}
 */
-
-/* mongodb+srv://pemg2006:Evermore123@smartcitylab.msgi2rb.mongodb.net/*/
