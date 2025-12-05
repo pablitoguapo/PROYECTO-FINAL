@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 3000;
 const setupSwagger = require('./swagger');
 const { logError, errorHandler } = require('./middleware/errorHandler');
 
