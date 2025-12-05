@@ -16,9 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Conexión DB
-mongoose.connect(
-  'mongodb+srv://pemg2006:Evermore123@smartcitylab.msgi2rb.mongodb.net/?retryWrites=true&w=majority&appName=smartcitylab'
-)
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Conexion a MongoDB exitosa'))
   .catch(err => console.error('No se puede conectar a MongoDB', err));
 
