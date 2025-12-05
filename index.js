@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const routerApi = require('./routes/rutas');
 const bodyParser = require('body-parser');
@@ -30,6 +31,8 @@ app.use(errorHandler);
 app.listen(port, () => {
     console.log("My port is working on: " + port);
 });
+
+console.log("URI:", process.env.MONGODB_URI);
 
 /*
 api.example.com/tasks/{id}
