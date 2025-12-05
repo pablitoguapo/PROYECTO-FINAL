@@ -1,31 +1,33 @@
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-//Configuración del Swagger
+// URL base dinámico (Render o local)
+const BASE_URL = process.env.BASE_URL || "http://localhost:4000";
+
 const swaggerDefinition = {
-  openapi: '3.0.0',
+  openapi: "3.0.0",
   info: {
-    title: 'Documentación de la API',
-    version: '1.0.0',
-    description: 'Documentación de la API con Swagger'
+    title: "Documentación de la API",
+    version: "1.0.0",
+    description: "Documentación de la API con Swagger",
   },
   servers: [
     {
-      url: 'http://localhost:4000',
-      description: 'Servidor de desarrollo'
+      url: BASE_URL,
+      description: "Servidor actual",
     },
   ],
 };
 
 const options = {
-    swaggerDefinition,
-    apis: ['./routes/*.js'], // Rutas donde se encuentran los endpoints
-}
+  swaggerDefinition,
+  apis: ["./routes/*.js"],
+};
 
 const swaggerSpec = swaggerJSDoc(options);
 
 const setupSwagger = (app) => {
-    app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-}
+  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+};
 
 module.exports = setupSwagger;
